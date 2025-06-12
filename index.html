@@ -10,15 +10,16 @@
       text-align: center;
       background-color: #f9f9f9;
       margin: 0;
-      padding: 0 10px 40px;
+      padding: 0 10px 10px;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
       justify-content: space-between;
     }
-    h1 {
-      margin-top: 30px;
+    h2 {
+      margin-top: 90px;
       font-size: 1.8rem;
+      padding: 50px 0px 0px;
     }
     .relay-card {
       display: inline-block;
@@ -52,6 +53,12 @@
     .relay-card button:hover {
       opacity: 0.8;
     }
+  .signin {
+      width: 100%;
+      padding: 12px;
+      font-size: 180px;
+    }
+
     #allOffBtn, #logoutBtn {
       max-width: 300px;
       width: 90%;
@@ -118,7 +125,7 @@
       background-color: #1565c0;
     }
     #dashboard .relay-container {
-      max-width: 960px;
+      max-width: 1160px;
       margin: 20px auto 0;
       display: flex;
       flex-wrap: wrap;
@@ -138,22 +145,26 @@
       font-size: 0.9rem;
       color: #666;
       padding: 10px 0;
-      margin-top: 0px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Pintu Garasi</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Ruang Atas</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Ruang Bawah</button>
-</div>
-  
-  <h1>Garasi Control Dashboard</h1>
+<div class="container">
+
+<nav>
+<div class="nav nav-tabs" id="nav-tab" role="tablist">
+  <button class="nav-link active" id="nav-tabs-order" data-bs-toggle="tab" data-bs-target="#tabs-1" type="button" role="tab" aria-controls="tabs-1" aria-selected="true">Garasi Control
+  </button>
+  <button class="nav-link" id="nav-tab-manager" data-bs-toggle="tab" data-bs-target="#tabs-2" type="button" role="tab" aria-controls="tabs-2" aria-selected="false">Ruang Bawah
+  </button>
+  <button class="nav-link" id="nav-tab-manager" data-bs-toggle="tab" data-bs-target="#tabs-3" type="button" role="tab" aria-controls="tabs-3" aria-selected="false">Ruang Atas
+  </button>
+  </div>
 
   <!-- Login form -->
   <div id="loginForm">
+  <h3>Sign-in</h3>
     <input type="email" id="email" placeholder="Enter Email" required />
     <input type="password" id="password" placeholder="Enter Password" required />
     <button id="loginBtn">Login</button>
@@ -161,39 +172,62 @@
 
   <!-- Dashboard -->
   <div id="dashboard">
+
+
+  <div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="tabs-1" role="tabpanel" aria-labelledby="tabs-tab1">
+
+  <h2>Garasi Control </h2>
+
     <div class="relay-container">
       <div class="relay-card">
-        <h2>Relay 1</h2>
-        <p>Status: <span id="status1">Loading...</span></p>
-        <button id="btn1">Toggle</button>
+        <h2>STROBO</h2>
+        <p><span id="status1">Loading...</span></p>
+        <button id="btn1">KLIK..</button>
       </div>
 
       <div class="relay-card">
-        <h2>Relay 2</h2>
-        <p>Status: <span id="status2">Loading...</span></p>
-        <button id="btn2">Toggle</button>
+        <h2>BUKA</h2>
+        <p><span id="status2">Loading...</span></p>
+        <button id="btn2">KLIK..</button>
       </div>
 
       <div class="relay-card">
-        <h2>Relay 3</h2>
-        <p>Status: <span id="status3">Loading...</span></p>
-        <button id="btn3">Toggle</button>
+        <h2>TUTUP</h2>
+        <p><span id="status3">Loading...</span></p>
+        <button id="btn3">KLIK..</button>
       </div>
 
       <div class="relay-card">
-        <h2>Relay 4</h2>
-        <p>Status: <span id="status4">Loading...</span></p>
-        <button id="btn4">Toggle</button>
+        <h2>SIRAM</h2>
+        <p><span id="status4">Loading...</span></p>
+        <button id="btn4">KLIK..</button>
       </div>
     </div>
 
     <button id="allOffBtn">All OFF</button>
-    <button id="logoutBtn">Logout</button>
+  
+  </div>
+
+  <div class="tab-pane fade" id="tabs-2" role="tabpanel" aria-labelledby="tabs-2">
+    <h2>Ruang Bawah</h2>
+  </div>
+
+  <div class="tab-pane fade" id="tabs-3" role="tabpanel" aria-labelledby="tabs-3">
+    <h2>Ruang Atas</h2>
+  </div>
+</div>
+
+<!-- <button type="button" class="btn btn-primary" id="mybut">Want switch to manager</button> -->
+<button id="logoutBtn">Logout</button>
+
   </div>
 
   <footer>
     <i>wmdr @<span id="dateHere"></span></i>
   </footer>
+  
+</div>
 
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
@@ -300,6 +334,12 @@ const firebaseConfig = {
     var todaysDate = document.getElementById("dateHere").innerHTML = year;
 }
 
+    
+  $("#mybut").click(function() {
+  var sel = document.querySelector('#nav-tab-manager')
+  bootstrap.Tab.getInstance(sel).show()
+})
+    
   </script>
 </body>
 </html>
