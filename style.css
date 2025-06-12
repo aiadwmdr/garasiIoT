@@ -1,0 +1,105 @@
+body {
+  background: #456;
+  font-family: 'Open Sans', sans-serif;
+}
+.login {
+  width: 400px;
+  margin: 16px auto;
+  font-size: 16px;
+}
+/* Reset top and bottom margins from certain elements */
+.login-header,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.login-header {
+  background: #28d;
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+.login-container {
+  background: #ebebeb;
+  padding: 12px;
+}
+/* Every row inside .login-container is defined with p tags */
+.login p {
+  padding: 12px;
+}
+.login input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
+}
+.login input[type="submit"] {
+  background: #28d;
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+.login input[type="submit"]:hover {
+  background: #17c;
+}
+/* Buttons' focus effect */
+.login input[type="submit"]:focus {
+  border-color: #05a;
+}
+
+.tabs {
+    max-width: 500px;
+    min-height: 300px;
+    border: 1px solid #ececec;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  }
+  
+  div[role="tablist"] {
+    display: flex;
+    gap: 0.25rem;
+    background-color: #d1d1d170;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  button[role="tab"] {
+    color: #67769e;
+    background: none;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  button[role="tab"][aria-selected="true"] {
+    background-color: #ffffff;
+    color: #07409f;
+  }
+  
+  button[role="tab"][aria-selected="false"]:hover {
+    color: #000000;
+  }
+  div[role="tabpanel"] {
+    padding: 1rem;
+  }
