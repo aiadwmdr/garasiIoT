@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>WMDR Iot Control Dashboard</title>
+  <title>WMDR</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
@@ -131,71 +131,20 @@
         display: block;
       }
       body {
-        padding: 0 10px 60px;
+        padding: 0 10px 50px;
       }
     }
     footer {
       font-size: 0.9rem;
       color: #666;
       padding: 10px 0;
-      margin-top: 40px;
+      margin-top: 0px;
     }
-
-    
-body {font-family: Arial;}
-
-/* Style tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-/* Style tombol di dalam tab */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-/* Ubah warna background tombol saat mengarahkan kursor */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Buat kelas tablink active / current */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-
-/* Style button Close */
-.topright {
-  float: right;
-  cursor: pointer;
-  font-size: 28px;
-}
-
-.topright:hover {color: red;}
-
-</style>
+  </style>
 </head>
 <body>
 
-
-  <h1>WMDR IoT Dashboard</h1>
+  <h1>Garasi Control Dashboard</h1>
 
   <!-- Login form -->
   <div id="loginForm">
@@ -204,9 +153,40 @@ body {font-family: Arial;}
     <button id="loginBtn">Login</button>
   </div>
 
+  <!-- Dashboard -->
+  <div id="dashboard">
+    <div class="relay-container">
+      <div class="relay-card">
+        <h2>Relay 1</h2>
+        <p>Status: <span id="status1">Loading...</span></p>
+        <button id="btn1">Toggle</button>
+      </div>
+
+      <div class="relay-card">
+        <h2>Relay 2</h2>
+        <p>Status: <span id="status2">Loading...</span></p>
+        <button id="btn2">Toggle</button>
+      </div>
+
+      <div class="relay-card">
+        <h2>Relay 3</h2>
+        <p>Status: <span id="status3">Loading...</span></p>
+        <button id="btn3">Toggle</button>
+      </div>
+
+      <div class="relay-card">
+        <h2>Relay 4</h2>
+        <p>Status: <span id="status4">Loading...</span></p>
+        <button id="btn4">Toggle</button>
+      </div>
+    </div>
+
+    <button id="allOffBtn">All OFF</button>
+    <button id="logoutBtn">Logout</button>
+  </div>
 
   <footer>
-    <i>Created by wmdr @<span id="dateHere"></span></i>
+    <i>wmdr @<span id="dateHere"></span></i>
   </footer>
 
   <!-- Firebase SDKs -->
@@ -217,15 +197,15 @@ body {font-family: Arial;}
   <script>
     // Firebase config
     const firebaseConfig = {
-	  apiKey: "AIzaSyCQc3bGCWYMrWNNNxyPER7hiWWWq0CSwPP",
-	  authDomain: "nodemcu-relay-02.firebaseapp.com",
-	  databaseURL: "https://nodemcu-relay-02-default-rtdb.firebaseio.com",
-	  projectId: "nodemcu-relay-03",
-	  storageBucket: "nodemcu-relay-02.firebasestorage.app",
-	  messagingSenderId: "573546025557",
-	  appId: "1:583546025557:web:e52002c52b86267bd58888"
-	};
-
+  apiKey: "AIzaSyBa6T7Ay2eTq9Xp6YRC_CQZ92sqcT2vetk",
+  authDomain: "garasiautomation.firebaseapp.com",
+  databaseURL: "https://garasiautomation-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "garasiautomation",
+  storageBucket: "garasiautomation.firebasestorage.app",
+  messagingSenderId: "414590153274",
+  appId: "1:414590153274:web:9d47228cbc89eae336fb03",
+  measurementId: "G-GFZRGZ8HCC"
+};
     firebase.initializeApp(firebaseConfig);
 
     const loginForm = document.getElementById("loginForm");
@@ -300,27 +280,6 @@ body {font-family: Arial;}
           alert("Logout failed: " + error.message);
         });
     };
-
-
-
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-  </script>
-  <script>
 
     theDate();
 
